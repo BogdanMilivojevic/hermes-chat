@@ -16,7 +16,9 @@
   "plugins": [
     "react"
   ],
-  "rules": {},
+  "rules": {
+    "react/jsx-indent" : ["error", 2]
+  },
   "settings": {
     "react": {
       "version": "18.2"
