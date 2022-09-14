@@ -1,7 +1,9 @@
 import React from 'react'
 import { Bird } from 'phosphor-react'
+import { useNavigate } from 'react-router-dom'
 
 function Nav () {
+  const navigate = useNavigate()
   return (
     <>
       <nav className='navigation'>
@@ -11,10 +13,11 @@ function Nav () {
         </div>
         <div className='nav-text'>
           <a href='#'>Privacy first</a>
-          <a className='nav-cta' href='#'> Sign in</a>
+          <button className='btn-login' onClick={() => navigate('/chat')}> Sign in</button>
         </div>
       </nav>
     </>
   )
 }
+
 export default Nav
