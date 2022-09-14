@@ -6,6 +6,7 @@ const PopUp = ({ setShowPopUp, setShowRegister }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
+  // Navigation
   const navigate = useNavigate()
 
   const onSubmit = (e) => {
@@ -15,11 +16,9 @@ const PopUp = ({ setShowPopUp, setShowRegister }) => {
       alert('Please fill-in all data')
       return
     }
-    login({ email, password }, navigate)
+    login({ email, password }, navigate, setShowPopUp())
     setEmail('')
     setPassword('')
-    setShowRegister(false)
-    setShowPopUp(false)
   }
 
   return (
