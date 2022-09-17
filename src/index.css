@@ -21,6 +21,14 @@ body {
   align-items: center;
   justify-content: space-between;
   transition: all 0.5s;
+  position: sticky;
+  top: 0%;
+  padding-top: 0;
+  padding-bottom: 0;
+  background-color: #fff;
+  z-index: 999;
+  box-shadow: 0 1.2rem 3.2rem rgba(0, 0, 0, 0.05);
+  transition: .2s ease-in;
 
 }
 
@@ -66,19 +74,18 @@ body {
   text-decoration: underline solid #3C62FF 3px
 }
 
-.nav-text a.nav-cta:link,
-.nav-text a.nav-cta:visited {
-  text-decoration: none;
+.btn-login {
+  font-weight: 500;
+  font-size: 18px;
   display: inline-block;
   padding: 12px 24px;
   color: #fff;
-  ;
+  border: none;
   border-radius: 9px;
   background-color: #6E8BFF;
 }
 
-.nav-text a.nav-cta:active,
-.nav-text a.nav-cta:hover {
+.btn-login:hover {
   background-color: #3C62FF;
 }
 
@@ -325,4 +332,73 @@ body {
 
 .copyright {
   padding: 16px 32px
+}
+
+/* //////////////////////////
+-------CHAT SECTION--------
+///////////////////////////// */
+.section-chat {
+  max-width: 1400px;
+  margin: 0 auto;
+  height: 100vh;
+  position: relative;
+  background-color: #EFF2FF;
+}
+
+.chat-nav {
+  display: flex;
+  align-items: center;
+  padding: 20px 20px 20px 60px;
+  gap: 20px;
+  background-color: #6E8BFF;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+}
+
+.chat-icon {
+  color: #fff;
+  height: 50px;
+  width: 50px;
+}
+
+.chat-title {
+  display: inline-block;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.chat-input {
+  display: grid;
+  grid-template-columns: 1fr;
+  background-color: #fff;
+  position: absolute;
+  bottom: 0%;
+  left: 0%;
+  width: 100%;
+}
+
+.text-container {
+  background-color: #6E8BFF;
+}
+
+.chat-form {
+  display: block;
+  padding: 6px 6px;
+  border: none;
+  outline: none;
+}
+
+.chat-form input {
+  font-size: 30px;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  outline: none;
+}
+
+.chat-form input::placeholder {
+  color: #E5E5E5
 }
