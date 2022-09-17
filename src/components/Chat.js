@@ -2,13 +2,16 @@ import React from 'react'
 import { Bird } from 'phosphor-react'
 
 
-function Chat (){
+function Chat ({logout}){
 
   return (
     <div className='section-chat'>
       <nav className='chat-nav'>
-        <Bird className='chat-icon'/>
-        <p className='chat-title'>Hermes-chat</p>
+        <div className='chat-logo'>
+          <Bird className='chat-icon'/>
+          <p className='chat-title'>Hermes-chat</p>
+        </div>
+        <button className='logout-btn' onClick={logout}>Logout</button>
       </nav>
       <div className='chat-input'>
         <div className='text-container'>
