@@ -6,6 +6,7 @@ const Register = ({ setShowRegister }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
+  // Navigation
   const navigate = useNavigate()
 
   const onSubmit = (e) => {
@@ -15,10 +16,9 @@ const Register = ({ setShowRegister }) => {
       alert('Please fill-in all data')
       return
     }
-    register({ email, password }, navigate)
+    register({ email, password }, navigate, setShowRegister())
     setEmail('')
     setPassword('')
-    setShowRegister(false)
   }
 
   return (
