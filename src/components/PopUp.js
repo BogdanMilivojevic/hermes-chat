@@ -16,7 +16,7 @@ const PopUp = ({ setShowPopUp, setShowRegister }) => {
       alert('Please fill-in all data')
       return
     }
-    login({ email, password }, navigate, setShowPopUp())
+    login(email, password, navigate, setShowPopUp)
     setEmail('')
     setPassword('')
   }
