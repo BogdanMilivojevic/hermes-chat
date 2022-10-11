@@ -7,7 +7,7 @@ const Register = ({ setShowRegister }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [username, setUsername] = useState('')
-  const [file, setFile] = useState('')
+  const [file, setFile] = useState(null)
 
   // Navigation
   const navigate = useNavigate()
@@ -23,6 +23,7 @@ const Register = ({ setShowRegister }) => {
     setUsername('')
     setEmail('')
     setPassword('')
+    setFile(null)
   }
 
   return (

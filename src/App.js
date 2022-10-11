@@ -11,6 +11,7 @@ import Register from './components/Register'
 import { Route, Routes } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import { ChatContextProvider } from './context/ChatContext'
 
 function App () {
   const [showPopUp, setShowPopUp] = useState(false)
@@ -33,7 +34,9 @@ rtl={false}
 />
         </div> }/>
       <Route path='/chat' element={ <div>
-        <Chat/>
+        <ChatContextProvider>
+          <Chat/>
+        </ChatContextProvider>
         <ToastContainer
 position="top-center"
 closeOnClick
