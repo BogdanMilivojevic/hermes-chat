@@ -1,29 +1,44 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { Image, FileText } from 'phosphor-react'
+import { doc, onSnapshot } from 'firebase/firestore'
+import { db } from '../../firebase'
+import { AuthContext } from '../../context/AuthContext'
+import { ChatContext } from '../../context/ChatContext'
 
 const Chats = () => {
+  const [chats, setChats] = useState([])
+  const { currentUser } = useContext(AuthContext)
+  const { dispatch } = useContext(ChatContext)
+
+  useEffect(() => {
+    const getChats = () => {
+      const unsub = onSnapshot(doc(db, 'userConversations', currentUser.uid), (doc) => {
+        setChats(doc.data())
+      })
+      return () => {
+        unsub()
+      }
+    }
+    currentUser.uid && getChats()
+  }, [currentUser.uid])
+
+  const handleSelect = (u) => {
+    dispatch({ type: 'CHANGE_USER', payload: u })
+  }
   return (
     <div className='chats'>
-      <div className='user-chat'>
-        <img className='user-picture' src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80 '/>
-        <div className='user-info'>
-          <span className='user-name'>Luka</span>
-          <p className='last-m'>Hey bro, need your help</p>
+      {Object.entries(chats)?.sort((a, b) => b[1].date - a[1].date).map((chat) => (
+        <div className='user-chat' key={chat[0]} onClick={() => handleSelect(chat[1].userInfo)}>
+          <img className='user-picture' src={chat[1].userInfo.photoURL}/>
+          <div className='user-info'>
+            <span className='user-name'>{chat[1].userInfo.displayName}</span>
+            <p className='last-m'>{chat[1].lastMessage?.text}</p>
+            {chat[1].lastMessage?.text.length === 0 && <p className='last-m-content'>
+              <Image className='last-m-icon'/>
+              <FileText className='last-m-icon'/>Image/File</p>}
+          </div>
         </div>
-      </div>
-      <div className='user-chat'>
-        <img className='user-picture' src=' https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80'/>
-        <div className='user-info'>
-          <span className='user-name'>Jovana</span>
-          <p className='last-m'>Hey!</p>
-        </div>
-      </div>
-      <div className='user-chat'>
-        <img className='user-picture' src=' https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'/>
-        <div className='user-info'>
-          <span className='user-name'>Marija</span>
-          <p className='last-m'>Did you send the memo?</p>
-        </div>
-      </div>
+      ))}
     </div>
   )
 }

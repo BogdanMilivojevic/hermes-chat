@@ -1,17 +1,23 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Messages from './Messages'
 import Input from './Input'
+import { ChatContext } from '../../context/ChatContext'
 
 const Conversation = () => {
-  return (
-    <div className='chat'>
-      <div className='chat-info'>
-        <span>Stefan</span>
+  const { data } = useContext(ChatContext)
+
+  if (data) {
+    return (
+      <div className='chat' >
+        <div className='chat-info'>
+          {data.user && <span>{data.user?.displayName}</span>}
+          {data.user.photoURL && <img src={data.user.photoURL}/>}
+        </div>
+        <Messages/>
+        <Input/>
       </div>
-      <Messages/>
-      <Input/>
-    </div>
-  )
+    )
+  }
 }
 
 export default Conversation

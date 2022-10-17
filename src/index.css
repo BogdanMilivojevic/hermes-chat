@@ -502,7 +502,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 50px;
+  height: 8%;
   padding: 10px;
   background-color: #5675FF;
   color: white;
@@ -602,20 +602,44 @@ body {
   background-color: #5675FF;
 }
 
+.last-m-content {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.last-m-icon {
+  height: 24px;
+  width: 24px;
+}
+
+.chat {
+  position: relative;
+}
+
 .chat-info {
   background-color: #8A9FFF;
-  height: 50px;
+  height: 8%;
   padding: 10px;
   display: flex;
   align-items: center;
   color: white;
+  gap: 15px;
+}
+
+.chat-info img {
+  background-color: #ddddf7;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  object-fit: cover
 }
 
 .messages {
   background-color: #ddddf7;
   padding: 20px;
   overflow-y: scroll;
-  height: 535px
+  height: 67.5vh
 }
 
 .message {
@@ -642,33 +666,98 @@ body {
 .message-content {
   max-width: 80%;
   display: flex;
+  gap: 10px;
+  flex-direction: column;
+  text-align: start;
+}
+
+.message-output {
+  display: flex;
   align-items: center;
+  gap: 5px;
+  flex-direction: column;
+}
+
+.message-output img {
+  max-width: 60%;
+  cursor: pointer;
+  align-self: flex-start;
 }
 
 .message-content p {
   background-color: white;
   padding: 10px 20px;
   border-radius: 0px 10px 10px 10px;
+  width: fit-content;
+  align-self: flex-start;
+}
+
+.message-content span {
+  font-size: 12px;
 }
 
 .owner {
   flex-direction: row-reverse;
 }
 
+.owner span {
+  text-align: end;
+}
+
 .owner p {
   background-color: #8A9FFF;
   color: white;
   border-radius: 10px 0px 10px 10px;
-  align-items: flex-end;
+  width: fit-content;
+  align-self: flex-end;
+}
+
+.owner img {
+  align-self: flex-end;
+}
+
+.owner .message-file {
+  flex-direction: row;
+}
+
+.message-file {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 20px;
+  border-radius: 12px;
+  background-color: #F5EEDD;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.message-file p {
+  font-size: 13px;
+  text-decoration: underline;
+  align-self: center;
+  background: none;
+  padding: 0;
+  color: black;
+}
+
+.file-icon {
+  height: 42px;
+  width: 42px;
+}
+
+.message-file:hover {
+  opacity: 0.7;
 }
 
 .input {
-  height: 50px;
+  height: 8%;
+  width: 100%;
   padding: 10px;
   background-color: white;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: absolute;
+  bottom: 0%;
 }
 
 .input input {
@@ -692,6 +781,7 @@ body {
 .input-icon {
   height: 24px;
   width: 24px;
+  cursor: pointer;
 }
 
 .input-btn {
@@ -700,4 +790,60 @@ body {
   color: white;
   background-color: #8A9FFF;
   cursor: pointer;
+}
+
+/* IMAGE POPUP */
+.image-overlay {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(5px);
+}
+
+.image-container {
+  display: flex;
+  position: relative;
+  padding: 48px 48px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  align-items: center;
+  justify-content: center;
+  width: 65%;
+  height: 80%;
+}
+
+.image-x-icon {
+  height: 48px;
+  width: 48px;
+  color: white;
+  cursor: pointer;
+  position: absolute;
+  top: 0%;
+  right: 15%;
+}
+
+.image-download-icon {
+  height: 60px;
+  width: 60px;
+  color: white;
+  cursor: pointer;
+  position: absolute;
+  right: 80%;
+}
+
+.image-container img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 50%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 24px;
+  z-index: 999;
 }
