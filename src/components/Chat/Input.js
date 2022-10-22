@@ -13,7 +13,6 @@ const Input = () => {
 
   const { currentUser } = useContext(AuthContext)
   const { data } = useContext(ChatContext)
-
   const handleSend = () => {
     const sendFileMessage = async () => {
       const storageRef = ref(storage, uuid())
