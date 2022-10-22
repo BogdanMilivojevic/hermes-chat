@@ -617,6 +617,20 @@ body {
   position: relative;
 }
 
+.chat-hidden {
+  background-color: #ddddf7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chat-hidden h1 {
+  font-size: 32px;
+  font-weight: 500;
+  font-style: italic;
+  color: #000
+}
+
 .chat-info {
   background-color: #8A9FFF;
   height: 8%;
