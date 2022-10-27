@@ -11,19 +11,20 @@ const Search = () => {
   const { currentUser } = useContext(AuthContext)
 
   // User search
-  const searchUser = async (username) => {
+  const searchUser = async (username, currentUserUid) => {
     if (!username) {
       setNotFound(false)
       setUsers([])
       return
     }
-    const userContainer = []
+    let userContainer = []
     const q = query(collection(db, 'users'), where('displayName', '==', username), limit(20))
 
     try {
       const querySnapshot = await getDocs(q)
       querySnapshot.forEach((doc) => {
         userContainer.push(doc.data())
+        userContainer = userContainer.filter((user) => user.uid !== currentUserUid)
         setUsers(userContainer)
       })
       if (querySnapshot.empty) {
@@ -78,7 +79,7 @@ const Search = () => {
   return (
     <div className='search'>
       <div className='search-form'>
-        <input type='text' placeholder='Find a user' id='input' onChange={(e) => debouncedSearchUser(e.target.value)}/>
+        <input type='text' placeholder='Find a user' id='input' onChange={(e) => debouncedSearchUser(e.target.value, currentUser.uid)}/>
       </div>
       {notFound && users.length === 0 && <div className='user-chat searched'>
         <div className='user-info'>

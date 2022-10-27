@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import { AuthContext } from '../../context/AuthContext'
 import { ChatContext } from '../../context/ChatContext'
 import { ReactComponent as FileIcon } from '../../img/file-icon.svg'
@@ -10,10 +10,6 @@ const Message = ({ message }) => {
   const [popUp, setPopUp] = useState(false)
   const ref = useRef()
 
-  useEffect(() => {
-    ref.current?.scrollIntoView({ behavior: 'smooth' })
-  }, [message])
-
   // Converting timestamp to day, hour and minute
   const date = message.date.toDate()
   const options = { hour: 'numeric', minute: 'numeric', weekday: 'long' }
@@ -24,11 +20,11 @@ const Message = ({ message }) => {
   }
 
   return (
-    <div ref={ref} className={`message ${message.senderId === currentUser.uid && 'owner'}`}>
+    <div ref={ref} className={`message ${message.senderId === currentUser.uid && 'owner'}`} id={message.id}>
       <div className='message-info'>
         <img src={message.senderId === currentUser.uid ? currentUser.photoURL : data.user.photoURL}/>
       </div>
-      <div className='message-content'>
+      <div className='message-content' id = {message.id}>
         <div className='message-output'>
           {message.img && <img src={message.img} onClick={() => { setImage(message.img); setPopUp(true) }}/>}
           {message.file && <div className='message-file' onClick={() => downloadFile(message.file)}> <FileIcon className='file-icon'/>
