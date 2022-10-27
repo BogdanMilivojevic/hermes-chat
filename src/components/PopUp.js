@@ -37,9 +37,7 @@ const PopUp = ({ setShowPopUp, setShowRegister }) => {
             <label>Password</label>
             <input type='password' placeholder='Your password' value={password} onChange={(e) => setPassword(e.target.value)}/>
           </div>
-          <div>
-            <button className='login-btn'>Login</button>
-          </div>
+          <button className='login-btn'>Login</button>
         </form>
         <div className='btn-container'>
           <button className='login-btn'onClick={() => { setShowRegister(true); setShowPopUp(false) }}>Create an account</button>

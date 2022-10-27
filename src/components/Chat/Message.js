@@ -20,11 +20,11 @@ const Message = ({ message }) => {
   }
 
   return (
-    <div ref={ref} className={`message ${message.senderId === currentUser.uid && 'owner'}`}>
+    <div ref={ref} className={`message ${message.senderId === currentUser.uid && 'owner'}`} id={message.id}>
       <div className='message-info'>
         <img src={message.senderId === currentUser.uid ? currentUser.photoURL : data.user.photoURL}/>
       </div>
-      <div className='message-content'>
+      <div className='message-content' id = {message.id}>
         <div className='message-output'>
           {message.img && <img src={message.img} onClick={() => { setImage(message.img); setPopUp(true) }}/>}
           {message.file && <div className='message-file' onClick={() => downloadFile(message.file)}> <FileIcon className='file-icon'/>

@@ -24,7 +24,7 @@ function App () {
           <Hero setShowPopUp={setShowPopUp}/>
           <Browsers/>
           <Privacy/>
-          <SignUp setShowPopUp={setShowPopUp}/>
+          <SignUp setShowRegister={setShowRegister}/>
           <Footer/>
           {showPopUp ? <PopUp setShowPopUp={setShowPopUp} setShowRegister={setShowRegister}/> : ''}
           {showRegister ? <Register setShowRegister={setShowRegister}/> : ''} <ToastContainer

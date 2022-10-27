@@ -1,14 +1,14 @@
 import React from 'react'
 import signup from '../img/signup-img.jpg'
 
-function SignUp ({ setShowPopUp }) {
+function SignUp ({ setShowRegister }) {
   return (
     <div className='section-signup'>
       <div className='signup-grid'>
         <div className='signup-box'>
-          <h1 className='signup-heading'>Sign up for free</h1>
+          <h1 className='signup-heading'>Sign up now</h1>
           <p>Hermes-chat is completely free and doesn&apos;t include any hidden fees.</p>
-          <button className='signup-btn' onClick={() => setShowPopUp(true)} >Sign in</button>
+          <button className='signup-btn' onClick={() => setShowRegister(true)} >Sign up</button>
         </div>
         <img className='signup-img' src={signup}/>
       </div>
