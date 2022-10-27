@@ -72,11 +72,11 @@ const Input = () => {
 
   return (
     <div className='input'>
-      <input type='text' placeholder='Type something...' onChange={(e) => setText(e.target.value)} value={text} onKeyDown={handleKey}/>
+      <input type='text' placeholder='Type something...'onChange={(e) => setText(e.target.value)} value={text} onKeyDown={handleKey}/>
       <div className='input-send'>
         <label htmlFor="file">
           <PlusCircle className='input-icon'/>
-          <input style={{ display: 'none' }} type="file" id="file"onChange={(e) => setFile(e.target.files[0])} />
+          <input style={{ display: 'none' }} type="file" id="file"onChange={(e) => setFile(e.target.files[0])} onKeyDown={handleKey} />
         </label>
         <button className='input-btn' onClick={(text || file) && handleSend}>Send</button>
       </div>

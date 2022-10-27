@@ -6,8 +6,9 @@ import { AuthContext } from '../../context/AuthContext'
 import { doc, onSnapshot } from 'firebase/firestore'
 import { db } from '../../firebase'
 import sound from '../../sound/notification-sound.mp3'
+import { Bird } from 'phosphor-react'
 
-const Conversation = () => {
+const Conversation = ({ setShowChat }) => {
   const { data } = useContext(ChatContext)
   const { currentUser } = useContext(AuthContext)
   const [userData, setUserData] = useState({})
@@ -51,17 +52,16 @@ const Conversation = () => {
     return (
       <div className='chat'>
         <div className='chat-info'>
+          <button className='back-btn' onClick={() => setShowChat(false)}> Go back</button>
           {data.user && <span>{data.user?.displayName}</span>}
           {data.user.photoURL && <img src={data.user.photoURL}/>}
+          <div className='navbar-logo-chat'>
+            <Bird className='navbar-icon'/>
+            <p>Hermes-Chat</p>
+          </div>
         </div>
         <Messages/>
         <Input/>
-      </div>
-    )
-  } else {
-    return (
-      <div className='chat-hidden'>
-        <h1>Please, select a user to send a message</h1>
       </div>
     )
   }

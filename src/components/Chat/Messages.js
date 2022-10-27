@@ -72,7 +72,6 @@ const Messages = () => {
   // Scrolling to the latest message if there is a new latest message
   useEffect(() => {
     myRef.current.lastElementChild?.scrollIntoView({ behavior: 'smooth' })
-    console.log('New last Mesage')
   }, [messages[lastIndex] ? messages[lastIndex].id : null])
 
   return (
