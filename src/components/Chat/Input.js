@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import { PlusCircle } from 'phosphor-react'
 import { AuthContext } from '../../context/AuthContext'
 import { ChatContext } from '../../context/ChatContext'
-import { arrayUnion, doc, serverTimestamp, Timestamp, updateDoc } from 'firebase/firestore'
+import { addDoc, collection, doc, serverTimestamp, Timestamp, updateDoc } from 'firebase/firestore'
 import { db, storage } from '../../firebase'
 import { v4 as uuid } from 'uuid'
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
@@ -20,15 +20,15 @@ const Input = () => {
       await uploadBytesResumable(storageRef, file).then(() => {
         getDownloadURL(storageRef).then(async (downloadURL) => {
           try {
-            await updateDoc(doc(db, 'conversations', data.chatId), {
-              messages: arrayUnion({
-                id: uuid(),
-                text,
-                name: file.name,
-                senderId: currentUser.uid,
-                date: Timestamp.now(),
-                [file.type !== 'image/jpeg' ? 'file' : 'img']: downloadURL
-              })
+            await addDoc(collection(db, 'conversations', data.chatId, 'messages'), {
+
+              id: uuid(),
+              text,
+              name: file.name,
+              senderId: currentUser.uid,
+              date: Timestamp.now(),
+              [file.type !== 'image/jpeg' ? 'file' : 'img']: downloadURL
+
             })
           } catch (err) {
             console.log(err.message)
@@ -37,14 +37,14 @@ const Input = () => {
       })
     }
     const sendTextMessage = async () => {
-      await updateDoc(doc(db, 'conversations', data.chatId), {
-        messages: arrayUnion({
+      await addDoc(collection(db, 'conversations', data.chatId, 'messages'),
+        {
           id: uuid(),
           text,
           senderId: currentUser.uid,
           date: Timestamp.now()
-        })
-      })
+        }
+      )
     }
     if (file) {
       sendFileMessage()

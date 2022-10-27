@@ -642,6 +642,15 @@ body {
   height: 67.5vh
 }
 
+.messages-loading {
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 5px;
+  margin-top: 15px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+}
+
 .message {
   display: flex;
   gap: 20px;
