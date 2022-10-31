@@ -53,9 +53,7 @@ const Register = ({ setShowRegister }) => {
             <Image className='image-icon'/>
             <span>Add an avatar</span>
           </label>
-          <div>
-            <button className='login-btn'>Register now</button>
-          </div>
+          <button className='login-btn'>Register now</button>
         </form>
       </div>
     </div>
