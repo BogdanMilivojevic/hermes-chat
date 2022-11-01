@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import { AuthContext } from '../../context/AuthContext'
 import { ChatContext } from '../../context/ChatContext'
 import { ReactComponent as FileIcon } from '../../img/file-icon.svg'
@@ -9,10 +9,6 @@ const Message = ({ message }) => {
   const [image, setImage] = useState('')
   const [popUp, setPopUp] = useState(false)
   const ref = useRef()
-
-  useEffect(() => {
-    ref.current?.scrollIntoView({ behavior: 'smooth' })
-  }, [message])
 
   // Converting timestamp to day, hour and minute
   const date = message.date.toDate()
