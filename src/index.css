@@ -389,6 +389,11 @@ body {
   gap: 22px;
 }
 
+.form-label-password {
+  display: flex;
+  gap: 27px;
+}
+
 .form-label-image {
   display: flex;
   gap: 15px;
@@ -406,12 +411,6 @@ body {
   height: 28px;
   width: 28px;
   cursor: pointer;
-}
-
-
-.form-label-password {
-  display: flex;
-  gap: 27px;
 }
 
 .btn-container {
@@ -900,14 +899,6 @@ body {
   right: 15%;
 }
 
-.image-download-icon {
-  height: 60px;
-  width: 60px;
-  color: white;
-  cursor: pointer;
-  position: absolute;
-  right: 80%;
-}
 
 .image-container img {
   position: absolute;
