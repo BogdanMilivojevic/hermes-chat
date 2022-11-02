@@ -4,12 +4,12 @@ import { db } from '../../firebase'
 import debounce from 'lodash.debounce'
 import { toast } from 'react-toastify'
 import { AuthContext } from '../../context/AuthContext'
+import { MagnifyingGlass } from 'phosphor-react'
 
 const Search = () => {
   const [users, setUsers] = useState([])
   const [notFound, setNotFound] = useState(false)
   const { currentUser } = useContext(AuthContext)
-
   // User search
   const searchUser = async (username, currentUserUid) => {
     if (!username) {
@@ -79,7 +79,8 @@ const Search = () => {
   return (
     <div className='search'>
       <div className='search-form'>
-        <input type='text' placeholder='Find a user' id='input' onChange={(e) => debouncedSearchUser(e.target.value, currentUser.uid)}/>
+        <MagnifyingGlass className='search-form-icon'/>
+        <input type='text' placeholder='Search for a user to start a chat' id='input' onChange={(e) => debouncedSearchUser(e.target.value, currentUser.uid)}/>
       </div>
       {notFound && users.length === 0 && <div className='user-chat searched'>
         <div className='user-info'>

@@ -28,8 +28,8 @@ const Navbar = () => {
       <div className='navbar-user'>
         <img src={currentUser.photoURL}/>
         <span>{currentUser.displayName}</span>
-        <button onClick={signout}>Logout</button>
       </div>
+      <button className='logout-btn' onClick={signout}>Logout</button>
     </div>
   )
 }

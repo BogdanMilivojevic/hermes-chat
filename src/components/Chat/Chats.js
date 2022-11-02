@@ -5,7 +5,7 @@ import { db } from '../../firebase'
 import { AuthContext } from '../../context/AuthContext'
 import { ChatContext } from '../../context/ChatContext'
 
-const Chats = () => {
+const Chats = ({ setChat }) => {
   const [chats, setChats] = useState([])
   const { currentUser } = useContext(AuthContext)
   const { dispatch } = useContext(ChatContext)
@@ -28,7 +28,7 @@ const Chats = () => {
   return (
     <div className='chats'>
       {Object.entries(chats)?.sort((a, b) => b[1].date - a[1].date).map((chat) => (
-        <div className='user-chat' key={chat[0]} onClick={() => handleSelect(chat[1].userInfo)}>
+        <div className='user-chat' key={chat[0]} onClick={() => { handleSelect(chat[1].userInfo); setChat() }}>
           {chat[1].userInfo.photoURL && <img className='user-picture' src={chat[1].userInfo.photoURL}/>}
           <div className='user-info'>
             <span className='user-name'>{chat[1].userInfo.displayName}</span>

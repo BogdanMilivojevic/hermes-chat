@@ -1,3 +1,4 @@
+/* Front page media query*/
 @media (max-width:1100px) {
     .navigation {
         height: 70px;
@@ -361,6 +362,157 @@
 
     .btn-login {
         padding: 6px 12px;
+    }
+
+}
+
+/* Chat page media query */
+@media (max-width:655px) {
+    .container {
+        width: 75%;
+        height: 90%;
+    }
+
+    .navbar {
+        gap: 15px;
+    }
+
+    .navbar-logo p {
+        font-size: 12px;
+    }
+
+    .navbar-logo-chat {
+        font-size: 12px;
+    }
+
+    .nav-icon {
+        width: 18px;
+        height: 18px;
+    }
+
+    .navbar-user {
+        font-size: 16px;
+    }
+
+    .navbar-user img {
+        height: 25px;
+        width: 25px;
+    }
+
+    .logout-btn {
+        font-size: 14px;
+    }
+
+    .user-info span {
+        font-size: 24px;
+        font-weight: 600;
+        color: #323232
+    }
+
+    .user-info p {
+        font-size: 16px;
+        color: #585858
+    }
+
+    .user-picture {
+        height: 60px;
+        width: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .chat-info img {
+        height: 25px;
+        width: 25px;
+    }
+
+    .chat-info span {
+        font-size: 16px;
+    }
+
+    .back-btn {
+        font-size: 12px;
+    }
+
+    .chats {
+        max-height: 76.5vh;
+    }
+
+    .messages {
+        height: 76.5vh;
+    }
+
+}
+
+@media (max-width:430px) {
+    .navbar {
+        gap: 10px;
+    }
+
+    .navbar-logo p {
+        font-size: 10px;
+    }
+
+    .navbar-logo-chat {
+        font-size: 10px;
+    }
+
+    .nav-icon {
+        width: 16px;
+        height: 16px;
+    }
+
+    .navbar-user {
+        font-size: 14px;
+    }
+
+    .navbar-user img {
+        height: 20px;
+        width: 20px;
+    }
+
+    .logout-btn {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+
+    .user-info span {
+        font-size: 20px;
+        font-weight: 600;
+        color: #323232
+    }
+
+    .user-info p {
+        font-size: 14px;
+        color: #585858
+    }
+
+    .user-picture {
+        height: 45px;
+        width: 45px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .chats {
+        height: 76.5vh;
+    }
+
+    .chat-info img {
+        height: 20px;
+        width: 20px;
+    }
+
+    .chat-info span {
+        font-size: 14px;
+    }
+
+    .back-btn {
+        font-size: 10px;
+    }
+
+    .message-output p {
+        font-size: 12px;
     }
 
 }
