@@ -209,17 +209,17 @@
     .nav-icon {
         height: 26px;
         width: 26px;
+        margin-right: 5px;
     }
 
     .btn-login {
-        font-size: 10px;
+        font-size: 12px;
         padding: 8px 14px;
     }
 
     .section-hero {
         grid-template-columns: 1fr;
         max-width: 550px;
-        gap: 24px;
         margin-bottom: 50px;
     }
 
@@ -248,11 +248,17 @@
     .customers-icon {
         height: 20px;
         width: 20px;
+        margin-right: 5px;
     }
 
     .browsers-img img {
         height: 30px;
         width: 30px;
+        margin-right: 15px;
+    }
+
+    .browsers-img :last-child {
+        margin-right: 0;
     }
 
     .section-browser {
@@ -328,19 +334,35 @@
         font-size: 16px;
     }
 
+    .form-label-email {
+        margin-bottom: 10px;
+    }
+
+    .form-label-email label {
+        margin-left: -10px;
+        margin-right: 42px;
+    }
+
     .form-label-password {
-        justify-content: center;
-        gap: 40px;
+        margin-bottom: 15px;
+    }
+
+    .form-label-password label {
+        margin-left: -10px;
+        margin-right: 9px;
     }
 
     .form-label-username {
-        justify-content: center;
-        gap: 37px;
+        margin-bottom: 10px;
     }
 
-    .form-label-email {
-        justify-content: center;
-        gap: 75px;
+    .form-label-username label {
+        margin-left: -10px;
+        margin-right: 7px;
+    }
+
+    .form-label-image {
+        margin-bottom: 20px;
     }
 
     .login-btn {
@@ -373,9 +395,6 @@
         height: 90%;
     }
 
-    .navbar {
-        gap: 15px;
-    }
 
     .navbar-logo p {
         font-size: 12px;
@@ -385,7 +404,7 @@
         font-size: 12px;
     }
 
-    .nav-icon {
+    .navbar-icon {
         width: 18px;
         height: 18px;
     }
@@ -444,9 +463,13 @@
 
 }
 
-@media (max-width:430px) {
+@media (max-width:475px) {
     .navbar {
         gap: 10px;
+    }
+
+    .navbar-logo {
+        margin-right: 15px;
     }
 
     .navbar-logo p {
@@ -457,9 +480,10 @@
         font-size: 10px;
     }
 
-    .nav-icon {
+    .navbar-icon {
         width: 16px;
         height: 16px;
+        margin-right: 5px;
     }
 
     .navbar-user {
@@ -467,13 +491,18 @@
     }
 
     .navbar-user img {
-        height: 20px;
-        width: 20px;
+        height: 24px;
+        width: 24px;
+        margin-right: 5px;
     }
 
     .logout-btn {
         font-size: 12px;
         padding: 6px 10px;
+    }
+
+    .search-form-icon {
+        margin-right: 5px;
     }
 
     .user-info span {
@@ -492,6 +521,7 @@
         width: 45px;
         border-radius: 50%;
         object-fit: cover;
+        margin-right: 5px;
     }
 
     .chats {
@@ -499,20 +529,39 @@
     }
 
     .chat-info img {
-        height: 20px;
-        width: 20px;
+        height: 24px;
+        width: 24px;
     }
 
     .chat-info span {
         font-size: 14px;
+        margin-right: 5px;
     }
 
     .back-btn {
-        font-size: 10px;
+        font-size: 12px;
+        margin-right: 5px;
     }
 
     .message-output p {
         font-size: 12px;
+    }
+
+    .image-container {
+        width: 75%;
+        height: 90%;
+    }
+
+    .image-x-icon {
+        right: -5%;
+    }
+
+    .image-container img {
+        max-width: 85%;
+    }
+
+    .input-icon {
+        margin-right: 5px;
     }
 
 }
