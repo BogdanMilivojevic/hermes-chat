@@ -322,8 +322,8 @@
     }
 
     .login-form {
-        gap: 25px;
-        margin-bottom: 30px;
+        gap: 0;
+        margin-bottom: 0;
     }
 
     .login-form input::placeholder {
@@ -336,29 +336,32 @@
 
     .form-label-email {
         margin-bottom: 10px;
+        gap: 0;
     }
 
     .form-label-email label {
         margin-left: -10px;
-        margin-right: 42px;
+        margin-right: 52px;
     }
 
     .form-label-password {
         margin-bottom: 15px;
+        gap: 0;
     }
 
     .form-label-password label {
         margin-left: -10px;
-        margin-right: 9px;
+        margin-right: 20px;
     }
 
     .form-label-username {
+        gap: 0;
         margin-bottom: 10px;
     }
 
     .form-label-username label {
         margin-left: -10px;
-        margin-right: 7px;
+        margin-right: 16px;
     }
 
     .form-label-image {
@@ -375,6 +378,7 @@
         width: 50%;
         align-self: center;
         padding: 6px 12px;
+        margin-bottom: 15px;
     }
 
     .image-icon {
