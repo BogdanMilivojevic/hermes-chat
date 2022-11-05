@@ -32,7 +32,7 @@ const Messages = () => {
 
   // Used to reset count if switched to new chat
   useEffect(() => {
-    setMessageCount(10)
+    setMessageCount(25)
   }, [data.chatId])
 
   const fetchMore = () => {
@@ -44,7 +44,7 @@ const Messages = () => {
     const timer = setTimeout(() => {
       const observer = new IntersectionObserver((entries) => {
         const entry = entries[0]
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && messages.length >= 25) {
           fetchMore()
           observer.unobserve(entry.target)
         }
